@@ -1,22 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import { useState, useEffect } from 'react';
+import { getPortfolioDetails } from './firebase';
 
 function App() {
+  const [portfolioDetails, setPortfolioDetails] = useState({
+    title: '[Not found]',
+    position: '[Not found]',
+    blurb: '[Not found]'
+  });
+
+  useEffect(() => {
+    getPortfolioDetails().then(portfolioDetails => {
+      if (portfolioDetails.exists) {
+        setPortfolioDetails(portfolioDetails.data());
+      } else {
+        console.log('Error - Portfolio details not found');
+      }
+    })
+  })
+
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <p>{portfolioDetails.title}</p>
+        <p>{portfolioDetails.position}</p>
+        <p>{portfolioDetails.blurb}</p>
       </header>
     </div>
   );
