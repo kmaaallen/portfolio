@@ -43,3 +43,11 @@ It uses [Firebase](https://firebase.google.com/) as the database to store portfo
 7. Run <code>npm start</code> to launch project in local browser
 
 # Testing
+
+## React Testing Library & Jest
+
+Projects created with Create React App have out of the box support for React Testing Library and Jest is already included out of the box with useful defaults.
+
+## Unit tests
+
+Unit tests are available in the ['tests'](https://github.com/kmaaallen/portfolio/blob/main/src/__tests__) folder.

@@ -22,9 +22,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <p>{portfolioDetails.title}</p>
-        <p>{portfolioDetails.position}</p>
-        <p>{portfolioDetails.blurb}</p>
+        <p data-testid="title">{portfolioDetails.title}</p>
+        <p data-testid="position">{portfolioDetails.position}</p>
+        <p data-testid="blurb">{portfolioDetails.blurb}</p>
       </header>
     </div>
   );
